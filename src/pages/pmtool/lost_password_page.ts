@@ -6,7 +6,7 @@ export class LostPasswordPage {
   private readonly emailInput: Locator;
   private readonly usernameInput: Locator;
   private readonly sendButton: Locator;
-  private readonly clickBackButton: Locator;
+  private readonly backButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,7 +17,7 @@ export class LostPasswordPage {
       ":nth-child(2) > .input-icon > .form-control",
     );
     this.sendButton = page.locator(".btn-info");
-    this.clickBackButton = page.locator("#back-btn");
+    this.backButton = page.locator("#back-btn");
   }
 
   async fillEmail(email: string) {
@@ -36,7 +36,7 @@ export class LostPasswordPage {
   }
 
   async clickBack() {
-    await this.clickBackButton.click();
+    await this.backButton.click();
     return new LoginPage(this.page);
   }
 }
